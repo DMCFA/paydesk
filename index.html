@@ -12,10 +12,35 @@
 <body>
 
     <header id="header">
+        <!--Mobile Nav-->
+        <div class="mobile-wrapper">
+            <div class="mobile-nav-container">
+                <img id="mobile-logo" src="" alt="mobile_company_logo" height="60">
+
+                 <!-- Hamburger Menu -->
+                 <button aria-label="open the menu" id="menu-button" class="hamburger" onclick="toggleNav()" type="button">
+                    <span aria-hidden="true" class="hamburger-box">
+                        <span aria-hidden="true" class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
         <!-- ============================================ -->
         <!--                   NAV                        -->
         <!-- ============================================ -->
     
+        <nav>
+            <div class="navbar">
+                <img aria-hidden="true" src="" alt="company logo" height="80">
+                <ul class="navbar-links">
+                    <li class="nav-item"><a href="">Home</a></li>
+                    <li class="nav-item"><a href="">Services</a></li>
+                    <li class="nav-item"><a href="">Pricing</a></li>
+                    <li class="nav-item"><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <main>
