@@ -6,41 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/styles.css"> 
+    <link rel="stylesheet" 
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+        crossorigin="anonymous"
+    />
     <title>PayDesk</title>
 </head>
 
 <body>
 
-    <header id="header">
-        <!--Mobile Nav-->
-        <div class="mobile-wrapper">
-            <div class="mobile-nav-container">
-                <img id="mobile-logo" src="" alt="mobile_company_logo" height="60">
-
-                 <!-- Hamburger Menu -->
-                 <button aria-label="open the menu" id="menu-button" class="hamburger" onclick="toggleNav()" type="button">
-                    <span aria-hidden="true" class="hamburger-box">
-                        <span aria-hidden="true" class="hamburger-inner"></span>
-                    </span>
-                </button>
-            </div>
-        </div>
-
         <!-- ============================================ -->
         <!--                   NAV                        -->
         <!-- ============================================ -->
     
-        <nav>
-            <div class="navbar">
-                <img aria-hidden="true" src="" alt="company logo" height="80">
-                <ul class="navbar-links">
-                    <li class="nav-item"><a href="">Home</a></li>
-                    <li class="nav-item"><a href="">Services</a></li>
-                    <li class="nav-item"><a href="">Pricing</a></li>
-                    <li class="nav-item"><a href="">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+        <header id="header">
+            <!-- <div class="navbar"> -->
+            <a href="#main-menu" class="menu-toggle" aria-label="open main menu">
+                <span class="sr-only">Open main menu</span>
+                <span class="fa fa-bars" aria-hidden="true"></span>
+            </a>
+            <img class="logo-img" aria-hidden="true" src="/img/logo.svg" alt="company logo" height="60">
+            <h1 class="logo-heading">PayDesk</h1>
+            <nav id="menu" class="menu" aria-label="Main menu">
+                <a href="#main-menu-toggle" id="menu-close" class="menu-close" aria-label="Close main menu">
+                    <span class="sr-only">Close main menu</span>
+                    <span class="fa fa-close" aria-hidden="true"></span>
+                </a>
+            <ul class="navbar-links">
+                <li class="nav-item"><a href="">Home</a></li>
+                <li class="nav-item"><a href="">Services</a></li>
+                <li class="nav-item"><a href="">Pricing</a></li>
+                <li class="nav-item"><a href="">Contact</a></li>
+            </ul>
+            </nav>
+            <a href="#main-menu-toggle" class="backdrop" tabindex="-1" aria-hidden="true" hidden></a>
     </header>
 
     <main>
