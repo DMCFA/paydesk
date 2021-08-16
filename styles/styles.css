@@ -11,206 +11,101 @@
   --font-size: 14px;
 }
 
-/* Screen reader */
-/* Screen reader only */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-/* Button styling */
-.menu-toggle {
-  display: inline-block;
-  padding: .75em 15px;
-  line-height: 1em;
-  font-size: 1em;
-  color: #333;
-}
-
-.menu-toggle:hover,
-.menu-toggle:focus {
-  color: #c00;
-}
-
-/*
-   Default styles + Mobile first
-   Offscreen menu style
-  */
-.main-menu {
-  position: absolute;
+img.logo-img {
   display: none;
-  left: -200px;
-  top: 0;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: visible;
-  transition: left 0.3s ease, box-shadow 0.3s ease;
-  z-index: 999;
 }
 
-.main-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 2.5em 0 0;
-  /* Hide shadow w/ -8px while 'closed' */
-  box-shadow: -8px 0 8px rgba(0, 0, 0, 0.5);
-  min-height: 100%;
-  width: 200px;
-  background: #1a1a1a;
-}
-
-.main-menu a {
-  display: block;
-  padding: .75em 15px;
-  line-height: 1em;
-  font-size: 1em;
-  color: #fff;
-  text-decoration: none;
-  border-bottom: 1px solid #383838;
-}
-
-.main-menu li:first-child a {
-  border-top: 1px solid #383838;
-}
-
-.main-menu a:hover,
-.main-menu a:focus {
-  background: #333;
-  text-decoration: underline;
-}
-
-.main-menu .menu-close {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-/*
-   On small devices, allow it to toggle...
-  */
-/*
-   :target for non-JavaScript
-   [aria-expanded] will be used if/when JavaScript is added to improve interaction, though it's completely optional.
-  */
-.main-menu:target,
-.main-menu[aria-expanded="true"] {
-  display: block;
-  left: 0;
-  outline: none;
-  box-shadow: 3px 0 12px rgba(0, 0, 0, 0.25);
-}
-
-.main-menu:target .menu-close,
-.main-menu[aria-expanded="true"] .menu-close {
-  z-index: 1001;
-}
-
-.main-menu:target ul,
-.main-menu[aria-expanded="true"] ul {
-  position: relative;
-  z-index: 1000;
-}
-
-/* 
-   We could us `.main-menu:target:after`, but
-   it wouldn't be clickable.
-  */
-.main-menu:target + .backdrop,
-.main-menu[aria-expanded="true"] + .backdrop {
-  position: absolute;
-  display: block;
-  left: 0;
-  top: 0;
+nav {
+  background-color: #6B7AA1;
+  height: 80px;
   width: 100%;
-  height: 100%;
-  z-index: 998;
-  background: #000;
-  background: rgba(0, 0, 0, 0.85);
-  cursor: default;
 }
 
-@supports (position: fixed) {
-  .main-menu,
-  .main-menu:target + .backdrop,
-  .main-menu[aria-expanded="true"] + .backdrop {
-    position: fixed;
+label.logo-heading {
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: var(--font-size);
+  padding: 7px 13px;
+  border-radius: 3px;
+}
+
+a.nav-item, a:hover {
+  background: #1b9bff;
+  transition: .5s;
+}
+
+.checkbox {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 952px) {
+  label.logo-heading {
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  nav ul li a {
+    font-size: 16px;
   }
 }
 
-/*
-   Larger screen styling
-   Horizontal menu
-  */
-@media (min-width: 768px) {
-  .menu-toggle,
-  .main-menu .menu-close {
-    display: none;
-  }
-  /* Undo positioning of off-canvas menu */
-  .main-menu {
-    position: relative;
-    left: auto;
-    top: auto;
-    height: auto;
+@media (max-width: 858px) {
+  .checkbox {
     display: block;
   }
-  .main-menu ul {
-    display: flex;
-    /* Undo off-canvas styling */
-    padding: 0;
-    box-shadow: none;
-    height: auto;
-    width: auto;
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s ease;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+  }
+  a.nav-item, a:hover {
     background: none;
+    color: #0082e6;
   }
-  .main-menu a {
-    color: #06c;
-    border: 0 !important;
-    /* Remove borders from off-canvas styling */
+  #check:checked ~ ul {
+    left: 0;
   }
-  .main-menu a:hover,
-  .main-menu a:focus {
-    background: none;
-    /* Remove background from off-canvas styling */
-    color: #c00;
-  }
-}
-
-/*
-   Demo purposes only
-  */
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-header {
-  padding: 20px;
-  display: flex;
-  align-items: baseline;
-}
-
-article {
-  padding: 30px;
-  width: 55em;
-  font-size: 16px;
-  line-height: 1.5em;
-}
-
-article h2 {
-  font-weight: 500;
-  font-size: 28px;
-}
-
-.logo {
-  margin: 0 30px 0 10px;
-  font-size: 1.5em;
 }
 /*# sourceMappingURL=styles.css.map */
