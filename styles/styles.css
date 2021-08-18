@@ -133,7 +133,7 @@ a.nav-item, a:hover {
 img.modal {
   height: calc(100vh - 260px);
   width: 85%;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-left: 40px;
   border-radius: 10px;
 }
@@ -141,26 +141,35 @@ img.modal {
 .right-container {
   width: 45%;
   float: right;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-right: 50px;
 }
 
 h1 {
   color: var(--logo-color);
   font-family: sans-serif;
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 800;
   text-transform: capitalize;
   letter-spacing: 2px;
-  text-align: right;
-  margin-right: 40px;
-  padding: 10px 20px;
-  animation: blinker 6s linear infinite;
+  text-align: left;
+  padding: 30px 0px;
+  margin-right: 30px;
+  animation: h1 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
-@keyframes blinker {
-  50% {
-    opacity: .7;
+@keyframes h1 {
+  0% {
+    letter-spacing: -0.5em;
+    transform: translateZ(-700px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
   }
 }
 
@@ -170,12 +179,49 @@ p {
   font-weight: 500;
   letter-spacing: 1px;
   padding: 20px 5px;
-  line-height: 35px;
+  line-height: 40px;
 }
 
 .bottom-container {
   width: 100%;
-  display: inline-block;
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85px;
+  width: 20%;
+  border: 3px var(--logo-color) solid;
+  border-radius: 5%;
+  background-color: var(--logo-color);
+  opacity: .9;
+  animation: blinker 6s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: .5;
+  }
+}
+
+span.number, span.text {
+  font-size: var(--font-size);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+span.number {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 10px 0px;
+}
+
+span.text {
+  font-variant: small-caps;
+  letter-spacing: 2px;
 }
 
 footer {
