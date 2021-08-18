@@ -1,2 +1,2 @@
 # paydesk
-Static starter page website
+Static and responsive starter page website
